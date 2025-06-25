@@ -1,3 +1,5 @@
+import random
+
 class Character:
     def __init__(self, name):
         self.name = name
@@ -17,6 +19,11 @@ class Character:
     def isAlive(self):
         return self.health > 0
 
+    def attack(self):
+        attackVal = random.randint(0, 20) + self.strength
+        print(self.name + " does " + str(attackVal) + " damage!")
+        return attackVal
+
 
 # Main code starts here
 #p1 = Character(input("Enter p1 name: "))
@@ -29,7 +36,8 @@ p2 = Character("Adam")
 print(p2.getStats())
 
 p1.takeDamage(2)
-print(p1.isAlive())
+
+p1.attack()
 
 
 
